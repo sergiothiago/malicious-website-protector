@@ -1,5 +1,7 @@
 package service;
 
+import util.Constants;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,13 +10,10 @@ import java.nio.file.Paths;
 
 public class FileCreatorService {
 
-    // Caminho do arquivo
-    public static final String FILE_PATH = "myFile.txt";
-
     // Método para adicionar uma linha ao arquivo
     public static void addLine(String content) {
         try {
-            Path path = Paths.get(FILE_PATH);
+            Path path = Paths.get(Constants.FILE_PATH);
 
             // Verifica se o arquivo existe; se não, cria um novo
             createFileIfNotExists(path);
@@ -28,7 +27,7 @@ public class FileCreatorService {
     }
 
     private static void addNewLineEndOfFile(String content) throws IOException {
-        try (FileWriter writer = new FileWriter(FILE_PATH, true)) {
+        try (FileWriter writer = new FileWriter(Constants.FILE_PATH, true)) {
             writer.write(content + "\n");
             System.out.println("Conteudo adicionado ao arquivo com sucesso.");
         }
@@ -37,7 +36,7 @@ public class FileCreatorService {
     private static void createFileIfNotExists(Path path) throws IOException {
         if (!Files.exists(path)) {
             Files.createFile(path);
-            System.out.println("Arquivo criado: " + FILE_PATH);
+            System.out.println("Arquivo criado: " + Constants.FILE_PATH);
         }
     }
 
