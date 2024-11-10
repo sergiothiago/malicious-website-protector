@@ -1,0 +1,2 @@
+## ---- Bloqueio de URLs no hosts ----- ##
+0.0.0.0        https://www.globo.com/
